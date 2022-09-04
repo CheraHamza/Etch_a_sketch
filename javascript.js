@@ -43,9 +43,14 @@ function reset()
     divs.forEach((div) =>{
         container.removeChild(div);
     });
+    let previousRes=res;
     do{
     res=prompt("What's the resolution of the board? [max 100]","16");
     }while(res>100);
+    if(Number.isInteger(res)===false)
+    {
+        res= previousRes;
+    }
     dimension=360/res;
     createBoard(dimension);
 }
