@@ -45,11 +45,11 @@ function reset()
     });
     let previousRes=res;
     do{
-    res=prompt("What's the resolution of the board? [max 100]","16");
-    }while(res>100);
-    if(Number.isInteger(res)===false)
+    res=prompt("What's the resolution of the board? [min 1] [max 100]","16");
+    }while(res < 0 || res > 100);
+    if(isNaN(res))
     {
-        res= previousRes;
+        res = previousRes;
     }
     dimension=360/res;
     createBoard(dimension);
